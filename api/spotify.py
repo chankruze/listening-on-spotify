@@ -54,6 +54,7 @@ def nowPlaying():
     if response.status_code == 204:
         return {}
 
+    print(response)
     return response.json()
 
 def barGen(barCount):
@@ -78,8 +79,8 @@ def makeSVG(data):
     barCSS = barGen(barCount)
 
     if data == {} or data["item"] == 'None':
-        #contentBar = "" #Shows/Hides the EQ bar if no song is currently playing
-        currentStatus = "Last seen playing:"
+        # contentBar = "" #Shows/Hides the EQ bar if no song is currently playing
+        currentStatus = "Listening To:"
         recentPlays = recentlyPlayed()
         recentPlaysLength = len(recentPlays["items"])
         itemIndex = random.randint(0, recentPlaysLength - 1)
